@@ -3,7 +3,7 @@ FROM fabianmartin/php7-cli
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -yqq \
-	&& apt-get install -yqq \
+	&& apt-get install -yqq -o Dpkg::Options::="--force-confold"  \
 	php7.0-fpm \
 	&& cp /etc/php/7.0/cli/conf.d/timezone.ini /etc/php/7.0/fpm/conf.d/timezone.ini \
 	&& apt-get clean \
